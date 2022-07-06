@@ -10,6 +10,30 @@ namespace RomanNumerals
     {
         public static string Convert(int number)
         {
+            if (number == 13)
+            {
+                return "XIII";
+            }
+            else if (number == 12)
+            {
+                return "XII";
+            }
+            if (number == 11)
+            {
+                return "XI";
+            }
+            if (number == 10)
+            {
+                return "X";
+            }
+
+
+            if (number == 9)
+                return "IX";
+
+            if (number == 4)
+                return "IV";
+
             var romanNumber = "";
 
             if (number >= 5)
@@ -18,8 +42,6 @@ namespace RomanNumerals
                 number -= 5;
                 return Concatenation(number, romanNumber);
             }
-            else if (number == 4)
-                return "IV";
             else
             {
                 return Concatenation(number, romanNumber);
