@@ -11,16 +11,23 @@ namespace RomanNumerals
         public static string Convert(int number)
         {
             var romanNumber = "";
-            if (number == 30)
-                return "XXX";
-
-            if (number == 20)
-                return "XX";
-
+            if (number >= 50)
+            {
+                int result = number / 50;
+                romanNumber = Concatenation(result, romanNumber, "L"); ;
+                number -= 50 * result;
+            }
+            
+            if (number >=40)
+            {
+                romanNumber += "XL";
+                number -= 40;
+            }
             if (number >= 10)
             {
-                romanNumber += "X";
-                number -= 10;
+                int result = number / 10;
+                romanNumber = Concatenation(result, romanNumber, "X"); ;
+                number -= 10*result;
             }
 
             if (number == 9)
@@ -30,22 +37,21 @@ namespace RomanNumerals
             {
                 romanNumber += "V";
                 number -= 5;
-                return Concatenation(number, romanNumber);
             }
 
             if (number == 4)
                 return romanNumber + "IV";
 
-         return Concatenation(number, romanNumber);
+        return Concatenation(number, romanNumber);
 
         }
 
 
-        private static string Concatenation(int number, string romanNumber)
+        private static string Concatenation(int number, string romanNumber,string iterable = "I")
         {
             for (var i = 0; i < number; i++)
             {
-                romanNumber += "I";
+                romanNumber += iterable;
             }
             return romanNumber;
         }

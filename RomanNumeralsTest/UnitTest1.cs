@@ -10,7 +10,6 @@ namespace RomanNumeralsTest
         [TestCase(1,"I")]
         [TestCase(2, "II")]
         [TestCase(3, "III")]
-        [TestCase(5, "V")]
         [TestCase(6, "VI")]
         [TestCase(7, "VII")]
         [TestCase(8, "VIII")]
@@ -32,7 +31,10 @@ namespace RomanNumeralsTest
 
         [TestCase(4, "IV")]
         [TestCase(9, "IX")]
-        public void Given_A_Special_Integer_It_Will_Return_The_String_Roman_Numeral_Correspondent(int testElement, string expectedResult)
+        [TestCase(14, "XIV")]
+        [TestCase(19, "XIX")]
+        [TestCase(29, "XXIX")]
+        public void Given_A_Special_Integer_4_Or_9_It_Will_Return_The_String_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
 
@@ -43,13 +45,11 @@ namespace RomanNumeralsTest
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
 
-        [TestCase(14, "XIV")]
+        [TestCase(5, "V")]
         [TestCase(15, "XV")]
-        [TestCase(16, "XVI")]
-        [TestCase(19, "XIX")]
         [TestCase(20, "XX")]
         [TestCase(30, "XXX")]
-        public void Given_A_Special_Integer_It_Will_Return_The_String_Compound_Roman_Numeral_Correspondent(int testElement, string expectedResult)
+        public void Given_A_Special_Integer_5_It_Will_Return_The_String_Compound_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
 
@@ -60,5 +60,32 @@ namespace RomanNumeralsTest
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
 
+        [TestCase(40, "XL")]
+        [TestCase(42, "XLII")]
+        [TestCase(45, "XLV")]
+        public void Test_case_Given_number_40_return_XL(int testElement, string expectedResult)
+        {
+            //Arrange
+
+            //Act
+            string romanNumeral = Conversor.Convert(testElement);
+
+            //Assert
+            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
+        }
+        [TestCase(50, "L")]
+        [TestCase(52, "LII")]
+        [TestCase(55, "LV")]
+        [TestCase(60, "LX")]
+        public void Test_case_Given_number_50_return_L(int testElement, string expectedResult)
+        {
+            //Arrange
+
+            //Act
+            string romanNumeral = Conversor.Convert(testElement);
+
+            //Assert
+            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
+        }
     }
 }
