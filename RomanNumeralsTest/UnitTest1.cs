@@ -47,6 +47,8 @@ namespace RomanNumeralsTest
         [TestCase(15, "XV")]
         [TestCase(16, "XVI")]
         [TestCase(19, "XIX")]
+        [TestCase(20, "XX")]
+        [TestCase(30, "XXX")]
         public void Given_A_Special_Integer_It_Will_Return_The_String_Compound_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange

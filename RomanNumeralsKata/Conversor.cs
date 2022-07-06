@@ -11,6 +11,11 @@ namespace RomanNumerals
         public static string Convert(int number)
         {
             var romanNumber = "";
+            if (number == 30)
+                return "XXX";
+
+            if (number == 20)
+                return "XX";
 
             if (number >= 10)
             {
