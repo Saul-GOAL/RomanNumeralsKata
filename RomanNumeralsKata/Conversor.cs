@@ -8,16 +8,15 @@ namespace RomanNumerals
 {
     public static class Conversor
     {
-        public static string Convert(int testElement)
+        public static string Convert(int number)
         {
-            if (testElement >= 3)
-                return "III";
-            else if (testElement == 2)
-                return "II";
-            else if (testElement == 1)
-                return "I";
-            else
-                return testElement.ToString();
+            var romanNumber = "";
+
+            for (var i = 0; i < number; i++)
+            {
+                romanNumber += "I";
+            }
+            return romanNumber;
         }
     }
 }

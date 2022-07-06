@@ -6,12 +6,13 @@ namespace RomanNumeralsTest
     {
         //Write a method "string convert(int)" that takes a number and converts it to the according String representation.
 
-        [Test]
-        public void Given_The_Integer_1_It_Will_Return_The_String_I()
+
+        [TestCase(1,"I")]
+        [TestCase(2, "II")]
+        [TestCase(3, "III")]
+        public void Given_The_Integer_1_2_Or_3_It_Will_Return_The_String_I_II_Or_III_Respectively(int testElement, string expectedResult)
         {
             //Arrange
-            int testElement = 1;
-            string expectedResult = "I";
 
             //Act
             string romanNumeral = Conversor.Convert(testElement);
@@ -20,32 +21,6 @@ namespace RomanNumeralsTest
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
 
-        [Test]
-        public void Given_The_Integer_2_It_Will_Return_The_String_II()
-        {
-            //Arrange
-            int testElement = 2;
-            string expectedResult = "II";
-
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
-
-        [Test]
-        public void Given_The_Integer_3_It_Will_Return_The_String_III()
-        {
-            //Arrange
-            int testElement = 3;
-            string expectedResult = "III";
-
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
+        
     }
 }
