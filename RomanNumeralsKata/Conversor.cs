@@ -12,6 +12,23 @@ namespace RomanNumerals
         {
             var romanNumber = "";
 
+            if (number >= 5)
+            {
+                romanNumber += "V";
+                number -= 5;
+                return Concatenation(number, romanNumber);
+            }
+            else if (number == 4)
+                return "IV";
+            else
+            {
+                return Concatenation(number, romanNumber);
+            }
+        }
+
+
+        private static string Concatenation(int number, string romanNumber)
+        {
             for (var i = 0; i < number; i++)
             {
                 romanNumber += "I";
