@@ -10,42 +10,29 @@ namespace RomanNumerals
     {
         public static string Convert(int number)
         {
-            if (number == 13)
-            {
-                return "XIII";
-            }
-            else if (number == 12)
-            {
-                return "XII";
-            }
-            if (number == 11)
-            {
-                return "XI";
-            }
-            if (number == 10)
-            {
-                return "X";
-            }
-
-
-            if (number == 9)
-                return "IX";
-
-            if (number == 4)
-                return "IV";
-
             var romanNumber = "";
 
+            if (number >= 10)
+            {
+                romanNumber += "X";
+                number -= 10;
+            }
+
+            if (number == 9)
+                return romanNumber + "IX";
+            
             if (number >= 5)
             {
                 romanNumber += "V";
                 number -= 5;
                 return Concatenation(number, romanNumber);
             }
-            else
-            {
-                return Concatenation(number, romanNumber);
-            }
+
+            if (number == 4)
+                return romanNumber + "IV";
+
+         return Concatenation(number, romanNumber);
+
         }
 
 

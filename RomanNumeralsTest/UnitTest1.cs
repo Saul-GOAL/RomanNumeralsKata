@@ -14,6 +14,10 @@ namespace RomanNumeralsTest
         [TestCase(6, "VI")]
         [TestCase(7, "VII")]
         [TestCase(8, "VIII")]
+        [TestCase(10, "X")]
+        [TestCase(11, "XI")]
+        [TestCase(12, "XII")]
+        [TestCase(13, "XIII")]
         public void Given_One_Integer_It_Will_Return_The_String_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
@@ -25,12 +29,12 @@ namespace RomanNumeralsTest
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
 
-        [Test]
-        public void Given_The_Special_Integer_4_It_Will_Return_The_String_Roman_Numeral_Correspondent()
+
+        [TestCase(4, "IV")]
+        [TestCase(9, "IX")]
+        public void Given_A_Special_Integer_It_Will_Return_The_String_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
-            int testElement = 4;
-            string expectedResult = "IV";
 
             //Act
             string romanNumeral = Conversor.Convert(testElement);
@@ -38,12 +42,14 @@ namespace RomanNumeralsTest
             //Assert
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
-        [Test]
-        public void Given_The_Special_Integer_9_It_Will_Return_The_String_Roman_Numeral_Correspondent()
+
+        [TestCase(14, "XIV")]
+        [TestCase(15, "XV")]
+        [TestCase(16, "XVI")]
+        [TestCase(19, "XIX")]
+        public void Given_A_Special_Integer_It_Will_Return_The_String_Compound_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
-            int testElement = 9;
-            string expectedResult = "IX";
 
             //Act
             string romanNumeral = Conversor.Convert(testElement);
@@ -51,58 +57,6 @@ namespace RomanNumeralsTest
             //Assert
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
-        [Test]
-        public void Given_The_Integer_10_It_Will_Return_The_String_Roman_Numeral_Correspondent()
-        {
-            //Arrange
-            int testElement = 10;
-            string expectedResult = "X";
 
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
-        [Test]
-        public void Given_The_Integer_11_It_Will_Return_The_String_Roman_Numeral_Correspondent()
-        {
-            //Arrange
-            int testElement = 11;
-            string expectedResult = "XI";
-
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
-        [Test]
-        public void Given_The_Integer_12_It_Will_Return_The_String_Roman_Numeral_Correspondent()
-        {
-            //Arrange
-            int testElement = 12;
-            string expectedResult = "XII";
-
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
-        [Test]
-        public void Given_The_Integer_13_It_Will_Return_The_String_Roman_Numeral_Correspondent()
-        {
-            //Arrange
-            int testElement = 13;
-            string expectedResult = "XIII";
-
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
-       
     }
 }
