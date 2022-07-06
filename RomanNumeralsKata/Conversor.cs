@@ -10,7 +10,14 @@ namespace RomanNumerals
     {
         public static string Convert(int testElement)
         {
-            return "I";
+            if (testElement >= 3)
+                return "III";
+            else if (testElement == 2)
+                return "II";
+            else if (testElement == 1)
+                return "I";
+            else
+                return testElement.ToString();
         }
     }
 }
