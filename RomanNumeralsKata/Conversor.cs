@@ -11,11 +11,36 @@ namespace RomanNumerals
         public static string Convert(int number)
         {
             var romanNumber = "";
+
+            if (number >= 500)
+            {
+                romanNumber += "D";
+                number -= 500;
+            }
+
+            if (number >= 400)
+            {
+                romanNumber += "CD";
+                number -= 400;
+            }
+
+            if (number >= 100)
+            {
+                int result = number / 100;
+                romanNumber = Concatenation(result, romanNumber, "C"); ;
+                number -= 100 * result;
+            }
+
+            if (number >= 90)
+            {
+                romanNumber += "XC";
+                number -= 90;
+            }
+
             if (number >= 50)
             {
-                int result = number / 50;
-                romanNumber = Concatenation(result, romanNumber, "L"); ;
-                number -= 50 * result;
+                romanNumber += "L";
+                number -= 50;
             }
             
             if (number >=40)
