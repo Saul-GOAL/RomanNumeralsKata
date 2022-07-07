@@ -43,83 +43,75 @@ namespace RomanNumerals
         {
             var romanNumber = "";
 
-                if (number >= 1000)
-                {
-                    number = StackableRomanNumerals(number, ref romanNumber, 1000, romanNumeralDictionary[1000]);
-                }
+            if (number >= 1000)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 1000);
+            }
 
-                if (number >= 900)
-                {
-                    romanNumber += romanNumeralDictionary[900];
-                    number -= 900;
-                }
+            if (number >= 900)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 900);
+            }
 
-                if (number >= 500)
-                {
-                    romanNumber += romanNumeralDictionary[500];
-                    number -= 500;
-                }
+            if (number >= 500)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 500);
+            }
 
-                if (number >= 400)
-                {
-                    romanNumber += romanNumeralDictionary[400];
-                    number -= 400;
-                }
+            if (number >= 400)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 400);
+            }
 
-                if (number >= 100)
-                {
-                    number = StackableRomanNumerals(number, ref romanNumber, 100, romanNumeralDictionary[100]);
-                }
+            if (number >= 100)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 100);
+            }
 
-                if (number >= 90)
-                {
-                    romanNumber += romanNumeralDictionary[90];
-                    number -= 90;
-                }
+            if (number >= 90)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 90);
+            }
 
-                if (number >= 50)
-                {
-                    romanNumber += romanNumeralDictionary[50];
-                    number -= 50;
-                }
+            if (number >= 50)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 50);
+            }
 
-                if (number >= 40)
-                {
-                    romanNumber += romanNumeralDictionary[40];
-                    number -= 40;
-                }
-                if (number >= 10)
-                {
-                    number = StackableRomanNumerals(number, ref romanNumber, 10, romanNumeralDictionary[10]);
-                }
+            if (number >= 40)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 40);
+            }
 
-                if (number == 9)
-                {
-                    romanNumber += romanNumeralDictionary[9];
-                    number -= 9;
-                }
+            if (number >= 10)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 10);
+            }
 
-                if (number >= 5)
-                {
-                    romanNumber += romanNumeralDictionary[5];
-                    number -= 5;
-                }
+            if (number == 9)
+            {
+            number = ConvertNumberToRomanNumber(number, ref romanNumber, 9);
+            }
 
-                if (number == 4)
-                {
-                    romanNumber += romanNumeralDictionary[4];
-                    number -= 4;
-                }
+            if (number >= 5)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 5);
+            }
+
+            if (number == 4)
+            {
+                number = ConvertNumberToRomanNumber(number, ref romanNumber, 4);
+            }
             
-            number = StackableRomanNumerals(number, ref romanNumber, 1, romanNumeralDictionary[1]);
+            number = ConvertNumberToRomanNumber(number, ref romanNumber, 1);
 
             return romanNumber;
         }
 
-        private static int StackableRomanNumerals(int number, ref string romanNumber, int arabicNumber, string romanDictionaryValue)
+        private static int ConvertNumberToRomanNumber(int number, ref string romanNumber, int arabicNumber)
         {
-            int  numberOfRepetitions = number / arabicNumber;
-            romanNumber = Concatenation(numberOfRepetitions, romanNumber, romanDictionaryValue);
+            int numberOfRepetitions = number / arabicNumber;
+            romanNumber = Concatenation(numberOfRepetitions, romanNumber, romanNumeralDictionary[arabicNumber]);
             number -= arabicNumber * numberOfRepetitions;
             return number;
         }
