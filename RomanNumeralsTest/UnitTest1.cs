@@ -13,8 +13,8 @@ namespace RomanNumeralsTest
         [TestCase(6, "VI")]
         [TestCase(13, "XIII")]
         [TestCase(42, "XLII")]
-        [TestCase(244, "CCXLIV")]
-
+        [TestCase(241, "CCXLI")]
+        [TestCase(1111, "MCXI")]
         public void Given_One_Integer_It_Will_Return_The_String_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
@@ -33,6 +33,9 @@ namespace RomanNumeralsTest
         [TestCase(19, "XIX")]
         [TestCase(29, "XXIX")]
         [TestCase(99, "XCIX")]
+        [TestCase(944, "CMXLIV")]
+        [TestCase(999, "CMXCIX")]
+        [TestCase(2999, "MMCMXCIX")]
         public void Given_A_Special_Integer_4s_Or_9s_It_Will_Return_The_String_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
             //Arrange
@@ -53,6 +56,11 @@ namespace RomanNumeralsTest
         [TestCase(65, "LXV")]
         [TestCase(95, "XCV")]
         [TestCase(100, "C")]
+        [TestCase(450, "CDL")]
+        [TestCase(555, "DLV")]
+        [TestCase(600, "DC")]
+        [TestCase(1000, "M")]
+        [TestCase(1110, "MCX")]
 
         public void Given_A_Special_Integer_5s_Or_10s_It_Will_Return_The_String_Compound_Roman_Numeral_Correspondent(int testElement, string expectedResult)
         {
@@ -66,8 +74,8 @@ namespace RomanNumeralsTest
         }
 
 
-        [TestCase(400, "CD")]
-        [TestCase(500, "D")]
+        [TestCase(900, "CM")]
+        [TestCase(1000, "M")]
         public void Test_case_Given_number_400_return_CL(int testElement, string expectedResult)
         {
             //Arrange

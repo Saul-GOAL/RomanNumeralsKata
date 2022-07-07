@@ -12,6 +12,19 @@ namespace RomanNumerals
         {
             var romanNumber = "";
 
+            if (number >= 1000)
+            {
+                int result = number / 1000;
+                romanNumber = Concatenation(result, romanNumber, "M"); ;
+                number -= 1000 * result;
+            }
+
+            if (number >= 900)
+            {
+                romanNumber += "CM";
+                number -= 900;
+            }
+
             if (number >= 500)
             {
                 romanNumber += "D";
