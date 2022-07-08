@@ -44,30 +44,21 @@ namespace RomanNumerals
             var romanNumber = "";
             int remainToConvert = number;
 
-            foreach (int arabicNumber in romanNumeralDictionary.Keys)
+            foreach (int arabicNumberToken in romanNumeralDictionary.Keys)
             {
-                //Does the job if numberOfRepetitions > 0 ? 
-                int numberOfRepetitions = remainToConvert / arabicNumber;
+                int numberOfRepetitions = remainToConvert / arabicNumberToken;
 
-                // if remainToConvert = 0 break
-                remainToConvert -= arabicNumber * numberOfRepetitions;
-
+                remainToConvert -= arabicNumberToken * numberOfRepetitions;
 
                 // construct romanNumber
                 for (var i = 0; i < numberOfRepetitions; i++)
                 {
-                    romanNumber += romanNumeralDictionary[arabicNumber];
+                    romanNumber += romanNumeralDictionary[arabicNumberToken];
                 }
             }
 
             return romanNumber;
         }
 
-     
-        private static string Concatenation(int number, string romanNumber, string iterable)
-        {
-           
-            return romanNumber;
-        }
     }
 }
