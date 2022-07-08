@@ -73,19 +73,5 @@ namespace RomanNumeralsTest
             Assert.That(romanNumeral, Is.EqualTo(expectedResult));
         }
 
-
-        [TestCase(900, "CM")]
-        [TestCase(1000, "M")]
-        public void Test_case_Given_number_400_return_CL(int testElement, string expectedResult)
-        {
-            //Arrange
-
-            //Act
-            string romanNumeral = Conversor.Convert(testElement);
-
-            //Assert
-            Assert.That(romanNumeral, Is.EqualTo(expectedResult));
-        }
-
     }
 }

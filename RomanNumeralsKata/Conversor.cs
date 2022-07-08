@@ -24,103 +24,49 @@ namespace RomanNumerals
 
         private static Dictionary<int, string> romanNumeralDictionary = new Dictionary<int, string>
         {
-            {1, Roman_1},
-            {4, Roman_4},
-            {5, Roman_5},
-            {9, Roman_9},
-            {10, Roman_10},
-            {40, Roman_40},
-            {50, Roman_50},
-            {90, Roman_90},
-            {100, Roman_100},
-            {400, Roman_400},
-            {500, Roman_500},
-            {900, Roman_900},
             {1000, Roman_1000},
+            {900, Roman_900},
+            {500, Roman_500},
+            {400, Roman_400},
+            {100, Roman_100},
+            {90, Roman_90},
+            {50, Roman_50},
+            {40, Roman_40},
+            {10, Roman_10},
+            {9, Roman_9},
+            {5, Roman_5},
+            {4, Roman_4},
+            {1, Roman_1},
         };
 
         public static string Convert(int number)
         {
             var romanNumber = "";
+            int remainToConvert = number;
 
-            if (number >= 1000)
+            foreach (int arabicNumber in romanNumeralDictionary.Keys)
             {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 1000);
-            }
+                //Does the job if numberOfRepetitions > 0 ? 
+                int numberOfRepetitions = remainToConvert / arabicNumber;
 
-            if (number >= 900)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 900);
-            }
+                // if remainToConvert = 0 break
+                remainToConvert -= arabicNumber * numberOfRepetitions;
 
-            if (number >= 500)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 500);
-            }
 
-            if (number >= 400)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 400);
+                // construct romanNumber
+                for (var i = 0; i < numberOfRepetitions; i++)
+                {
+                    romanNumber += romanNumeralDictionary[arabicNumber];
+                }
             }
-
-            if (number >= 100)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 100);
-            }
-
-            if (number >= 90)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 90);
-            }
-
-            if (number >= 50)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 50);
-            }
-
-            if (number >= 40)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 40);
-            }
-
-            if (number >= 10)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 10);
-            }
-
-            if (number == 9)
-            {
-            number = ConvertNumberToRomanNumber(number, ref romanNumber, 9);
-            }
-
-            if (number >= 5)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 5);
-            }
-
-            if (number == 4)
-            {
-                number = ConvertNumberToRomanNumber(number, ref romanNumber, 4);
-            }
-            
-            number = ConvertNumberToRomanNumber(number, ref romanNumber, 1);
 
             return romanNumber;
         }
 
-        private static int ConvertNumberToRomanNumber(int number, ref string romanNumber, int arabicNumber)
-        {
-            int numberOfRepetitions = number / arabicNumber;
-            romanNumber = Concatenation(numberOfRepetitions, romanNumber, romanNumeralDictionary[arabicNumber]);
-            number -= arabicNumber * numberOfRepetitions;
-            return number;
-        }
+     
         private static string Concatenation(int number, string romanNumber, string iterable)
         {
-            for (var i = 0; i < number; i++)
-            {
-                romanNumber += iterable;
-            }
+           
             return romanNumber;
         }
     }
